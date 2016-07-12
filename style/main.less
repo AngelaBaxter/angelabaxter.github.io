@@ -1,0 +1,433 @@
+
+/* VARS */
+@weight-normal: 400;
+@weight-bold: 600;
+@font-family: 'Georgia', 'Times New Roman', serif;
+@font-color: #5b5b5b;
+@primary-color: #5b5b5b;
+@error-color: crimson;
+@success-color: mediumseagreen;
+@max-width: 1025px;
+
+/* GLOBAL DEFAULTS */
+*, *:before, *:after{
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	badding: 0;
+    min-height: 100%;
+}
+
+/* TYPOGRAPHY */
+body {
+	font: @weight-normal medium @font-family;
+	color: @font-color;
+	line-height: 1.8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: @weight-bold;
+	font-weight: normal;
+	line-height: 1.4;
+	margin: 0;
+}
+
+.subheader {
+	font-weight: @weight-normal;
+	color: fadeout(@font-color, 40%);
+}
+
+strong {
+	font-weight: @weight-bold;
+}
+
+h1 {
+	font-size: 260%;
+}
+
+h2 {
+	font-size: 220%;
+}
+
+h3 {
+	font-size: 180%;
+}
+
+h4 {
+	font-size: 160%;
+}
+
+h5 {
+	font-size: 140%;
+}
+
+h6 {
+	font-size: 120%;
+}
+
+a {
+	color: @primary-color;
+	text-decoration: none;
+	
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+header {
+	// background: #eee;
+	background: url('../img/nature.jpg');
+	background-size: cover;
+	width: 100%;
+	
+	.inner-header {
+		width: 100%;
+		max-width: @max-width;
+		margin: 0 auto;
+		padding: 20px;
+		position: relative;
+	}
+
+	h1 {
+		display: inline-block;
+		vertical-align: middle;
+		width: 285px;
+		height: 90px;
+
+		a {
+			width: 100%;
+			height: 100%;
+			display: inline-block;
+			overflow: hidden;
+			white-space: nowrap;
+			padding-left: 100%;
+			background: url('../img/main-logo.svg') no-repeat center;
+			background-size: contain;
+		}
+	}
+}
+
+.social-nav {
+	position: absolute;
+	right: 20px;
+	top: 55px;
+
+	li {
+		padding: 0;
+		margin-left: 7px;
+
+		a {
+			@icon-size: 35px;
+			display: inline-block;
+			width: @icon-size;
+			height: @icon-size;
+			background: url('../img/social-icons.svg') no-repeat center;
+			overflow: hidden;
+			padding-left: @icon-size;
+			
+			&[title="Facebook"] {
+				background-position: 0px center;
+			}
+
+			&[title="Twitter"] {
+				background-position: -100px center;
+			}
+
+			&[title="Pinterest"] {
+				background-position: -50px center;
+			}
+
+			&[title="Email"] {
+				background-position: -151px center;
+			}
+		}
+	}
+}
+
+.main-nav {
+	background: rgba(0, 0, 0, 0.3);
+	min-height: 2px;
+
+	ul {
+		max-width: @max-width;
+		margin: 0 auto;
+		
+		li a {
+			color: #fff;
+			text-transform: uppercase;
+			letter-spacing: 0.2em;
+			font-size: 85%;
+			padding: 10px 20px;
+		}
+	}
+}
+
+.content {
+	width: 100%;
+	max-width: @max-width;
+	margin: 0 auto;
+	position: relative;
+	padding-top: 100px;
+}
+
+nav {
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		
+		li {
+			margin: 0;
+			padding: 0;
+			display: inline-block;
+			padding: 10px;
+		}
+	}
+}
+
+.amazing-grace-about {
+	margin-bottom: 100px;
+
+	.cover,
+	.description {
+		float: left;
+		width: 50%;
+		padding: 0 20px;
+	}
+
+	.cover {
+		padding-right: 50px;
+		display: block;
+	}
+
+	.description {
+		padding-left: 50px;
+		
+		h2,
+		h3,
+		h4 {
+			text-transform: uppercase;
+			text-align: center;
+		}
+
+		h2 {
+			padding-bottom: 30px;
+			background: url('../img/title-swril.svg') no-repeat bottom center;
+			font-size: 195%;
+			letter-spacing: 0.25em;
+			margin-bottom: 5px;
+		}
+
+		h3 {
+			font-size: 120%;
+			letter-spacing: 0.05em;
+			word-spacing: 0.1em;
+			margin-bottom: 13px;
+		}
+
+		h3 strong {
+			font-weight: @weight-normal;
+			font-size: 125%;
+		}
+
+		h4 {
+			font-size: 120%;
+			letter-spacing: 0.2em;
+			margin-bottom: 25px;
+		}
+
+		p {
+			font-size: 85%;
+		}
+
+		p.isbn {
+			text-transform: uppercase;
+			letter-spacing: 0.2em;
+			line-height: 1.5;
+		}
+	}
+
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+
+.retail {
+	margin-bottom: 100px;
+	padding: 0 20px;
+
+	h4 {
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 110%;
+		letter-spacing: 0.2em;
+		
+		&:before {
+			content: url('../img/left-twril.svg');
+			display: inline-block;
+			vertical-align: middle;
+			padding: 0 10px;
+		}
+
+		&:after {
+			content: url('../img/right-twril.svg');
+			display: inline-block;
+			vertical-align: middle;
+			padding: 0 10px;
+		}
+	}
+
+	li {
+		display: block;
+		float: left;
+		width: 33.3%;
+		
+		a {
+			display: block;
+			width: 100%;
+			height: 100px;
+			background: no-repeat center;
+			background-size: 85%;
+			padding-left: 100%;
+			overflow: hidden;
+			
+			&.barnes-and-noble {
+				background-image: url('../img/barnes-and-noble-logo.svg');
+			}
+
+			&.books-a-million {
+				background-image: url('../img/books-a-million-logo.svg');
+			}
+
+			&.amazon {
+				background-image: url('../img/amazon-logo.svg')
+			}
+		}
+	}
+
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+}
+
+.stacked-books {
+	padding: 0 20px;
+	margin-bottom: 100px;
+
+	img {
+		width: 100%;
+	}
+}
+
+footer {
+	background: @primary-color;
+	color: #8c8c8c;
+	font-size: 80%;
+	text-align: right;
+	
+	.inner-footer {
+		padding: 2px 20px;
+		width: 100%;
+		max-width: @max-width;
+		margin: 0 auto;
+	}
+}
+
+@media (max-width: 1024px) {
+	.amazing-grace-about {
+		.cover {
+			padding-right: 20px;
+		}
+
+		.description {
+			padding-left: 20px;
+		}
+	}
+}
+
+@media (max-width: 820px) {
+	header {
+		background-size: auto;
+	}
+
+	.content {
+		padding-top: 50px;
+	}
+
+	.amazing-grace-about {
+		.cover,
+		.description {
+			float: none;
+			width: 100%;
+			max-width: 550px;
+			margin: 0 auto;
+		}
+
+		.cover {
+			max-width: 320px;
+			margin-bottom: 50px;
+		}
+	}
+}
+
+@media (max-width: 560px) {
+	header {
+		text-align: center;
+
+		.inner-header {
+			padding-bottom: 10px;
+			
+			h1{
+				width: 100%;
+				// height: auto;
+			}
+		}
+	}
+
+	.social-nav {
+		position: static;
+		margin-top: 5px;
+	}
+
+	.retail {
+		h4 {
+			font-size: 95%;
+
+			&:before,
+			&:after {
+				display: none;
+			}
+		}
+
+		li {
+			float: none;
+			width: 100%;
+			max-width: 320px;
+			margin: 0 auto;
+		}
+	}
+}
+
+@media (max-width: 410px) {
+	.amazing-grace-about {
+		.description {
+			h2 {
+				font-size: 150%;
+			}
+
+			h3,
+			h4 {
+				font-size: 105%;
+			}
+		}
+	}
+}
