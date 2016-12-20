@@ -1,13 +1,14 @@
 
 /* VARS */
-@weight-normal: 400;
-@weight-bold: 600;
-@font-family: 'Georgia', 'Times New Roman', serif;
+@weight-normal: normal;
+@weight-bold: bold;
+@font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@header-font-family: Georgia, 'Times New Roman', serif;
 @font-color: #5b5b5b;
 @primary-color: #5b5b5b;
 @error-color: crimson;
 @success-color: mediumseagreen;
-@max-width: 1025px;
+@max-width: 1024px;
 
 /* GLOBAL DEFAULTS */
 *, *:before, *:after{
@@ -19,7 +20,7 @@
 html,
 body {
 	margin: 0;
-	badding: 0;
+	padding: 0;
     min-height: 100%;
 }
 
@@ -28,11 +29,14 @@ body {
 	font: @weight-normal medium @font-family;
 	color: @font-color;
 	line-height: 1.8;
+	background: #f9f9f9;
 }
 
+
+
 h1, h2, h3, h4, h5, h6 {
-	font-weight: @weight-bold;
-	font-weight: normal;
+	font-family: @header-font-family;
+	font-weight: @weight-normal;
 	line-height: 1.4;
 	margin: 0;
 }
@@ -80,17 +84,15 @@ a {
 }
 
 header {
-	// background: #eee;
-	background: url('../img/nature.jpg');
 	background-size: cover;
 	width: 100%;
 	
 	.inner-header {
 		width: 100%;
+		padding: 35px;
+		position: relative;
 		max-width: @max-width;
 		margin: 0 auto;
-		padding: 20px;
-		position: relative;
 	}
 
 	h1 {
@@ -114,8 +116,8 @@ header {
 
 .social-nav {
 	position: absolute;
-	right: 20px;
-	top: 55px;
+	right: 35px;
+	top: 67px;
 
 	li {
 		padding: 0;
@@ -150,8 +152,9 @@ header {
 }
 
 .main-nav {
-	background: rgba(0, 0, 0, 0.3);
+	background: fade(#62435d, 50%);
 	min-height: 2px;
+	padding: 0 25px;
 
 	ul {
 		max-width: @max-width;
@@ -171,8 +174,15 @@ header {
 	width: 100%;
 	max-width: @max-width;
 	margin: 0 auto;
+	max-width: @max-width;
+	margin: 0 auto;
 	position: relative;
-	padding-top: 100px;
+	
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
 }
 
 nav {
@@ -190,24 +200,120 @@ nav {
 	}
 }
 
-.amazing-grace-about {
-	margin-bottom: 100px;
+aside {
+	float: left;
+	width: 25%;
+	padding: 0 35px;
+	
+	h2 {
+		font-size: 130%;
+		text-align: center;
+		margin: 10px 0;
+	}
+	
+	img {
+		width: 100%;
+		border-radius: 50%;
+	}
+}
 
-	.cover,
-	.description {
-		float: left;
-		width: 50%;
-		padding: 0 20px;
+.books {
+	float: left;
+	width: 75%;
+	padding: 0 35px;
+	
+	.hero {
+		img {
+			width: 100%;
+		}
+	}
+
+	& > ul,
+	& > ul > li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	& > ul > li {
+		padding: 20px;
+		position: relative;
 	}
 
 	.cover {
-		padding-right: 50px;
+		width: 130px;
+		margin-right: 20px;
+		position: absolute;
+		left: 20px;
+		top: 20px;
+	}
+
+	h2 {
+		font-size: 130%;
+		text-transform: uppercase;
+	}
+	
+	h3 {
+		font-size: 80%;
+		text-transform: uppercase;
+	}
+
+	h3 strong {
+		font-size: 120%;
+		font-weight: @weight-normal;
+	}
+
+	p {
+		font-size: 85%;
+	}
+
+	h2, h3, p {
+		padding-left: 150px;
+	}
+
+	[data-book] {
+		cursor: pointer;
+		text-decoration: underline;
+		position: absolute;
+		left: 20px;
+		top: 150px;
+		padding: 0;
+		width: 130px;
+		text-align: center;
+		
+		&:after {
+			content: ' \bb';
+			font-size: 110%;
+		}
+	}
+}
+
+.buy-links {
+	margin: 0;
+	padding: 0 0 0 150px;
+	
+	li {
+		margin: 0;
+		padding: 0;
+		display: inline-block;
+		
+		a {
+			padding: 2px 8px;
+			border-radius: 4px;
+			border: 1px solid #5b5b5b;
+		}
+	}
+}
+
+.book-more-details {
+
+	.cover {
+		width: 200px;
 		display: block;
+		margin: 0 auto;
 	}
 
 	.description {
-		padding-left: 50px;
-		
 		h2,
 		h3,
 		h4 {
@@ -228,6 +334,8 @@ nav {
 			letter-spacing: 0.05em;
 			word-spacing: 0.1em;
 			margin-bottom: 13px;
+			max-width: 19em;
+			margin: 0 auto 13px;
 		}
 
 		h3 strong {
@@ -259,75 +367,6 @@ nav {
 	}
 }
 
-.retail {
-	margin-bottom: 100px;
-	padding: 0 20px;
-
-	h4 {
-		text-transform: uppercase;
-		text-align: center;
-		font-size: 110%;
-		letter-spacing: 0.2em;
-		
-		&:before {
-			content: url('../img/left-twril.svg');
-			display: inline-block;
-			vertical-align: middle;
-			padding: 0 10px;
-		}
-
-		&:after {
-			content: url('../img/right-twril.svg');
-			display: inline-block;
-			vertical-align: middle;
-			padding: 0 10px;
-		}
-	}
-
-	li {
-		display: block;
-		float: left;
-		width: 33.3%;
-		
-		a {
-			display: block;
-			width: 100%;
-			height: 100px;
-			background: no-repeat center;
-			background-size: 85%;
-			padding-left: 100%;
-			overflow: hidden;
-			
-			&.barnes-and-noble {
-				background-image: url('../img/barnes-and-noble-logo.svg');
-			}
-
-			&.books-a-million {
-				background-image: url('../img/books-a-million-logo.svg');
-			}
-
-			&.amazon {
-				background-image: url('../img/amazon-logo.svg')
-			}
-		}
-	}
-
-	&:after {
-		content: '';
-		display: block;
-		clear: both;
-	}
-}
-
-.stacked-books {
-	padding: 0 20px;
-	margin-bottom: 100px;
-
-	img {
-		width: 100%;
-	}
-}
-
 footer {
 	background: @primary-color;
 	color: #8c8c8c;
@@ -342,92 +381,154 @@ footer {
 	}
 }
 
-@media (max-width: 1024px) {
-	.amazing-grace-about {
-		.cover {
-			padding-right: 20px;
-		}
+.modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 1000;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	background: rgba(0, 0, 0, 0.5);
+	padding: 35px;
+	
+	&.open {
+		display: block;
+	}
 
-		.description {
-			padding-left: 20px;
+	.modal-block {
+		background: #f9f9f9;
+		padding: 35px;
+		max-width: 500px;
+		margin: 0 auto;
+		position: relative;
+		
+		.modal-close {
+			position: absolute;
+			top: 10px;
+			right: 25px;
+			text-transform: uppercase;
+			cursor: pointer;
 		}
 	}
 }
 
-@media (max-width: 820px) {
-	header {
-		background-size: auto;
+
+@media (max-width: 730px) {
+	aside,
+	.books {
+		float: none;
+		width: 100%;
 	}
 
-	.content {
-		padding-top: 50px;
-	}
+	aside {
+		margin-bottom: 40px;
 
-	.amazing-grace-about {
-		.cover,
-		.description {
-			float: none;
-			width: 100%;
-			max-width: 550px;
-			margin: 0 auto;
+		&:after {
+			content: '';
+			display: block;
+			clear: both;
 		}
 
-		.cover {
-			max-width: 320px;
-			margin-bottom: 50px;
+		img {
+			width: 100px;
+			float: left;
+		}
+
+		h2,
+		p {
+			text-align: left;
+			padding-left: 120px;
 		}
 	}
 }
 
 @media (max-width: 560px) {
-	header {
-		text-align: center;
-
-		.inner-header {
-			padding-bottom: 10px;
-			
-			h1{
-				width: 100%;
-				// height: auto;
-			}
-		}
+	header h1 {
+		display: block;
+		margin: 0 auto;
 	}
 
 	.social-nav {
 		position: static;
-		margin-top: 5px;
+		text-align: center;
 	}
 
-	.retail {
+	.books {
+		& > ul > li {
+			padding-bottom: 40px;			
+		}
+
+		.cover,
+		[data-book],
+		h2,
+		h3,
+		.buy-links,
+		p {
+			position: static;
+			padding: 0;
+		}
+
+		h2,
+		h3 {
+			text-align: center;
+		}
+
+		.cover {
+			display: block;
+			margin: 15px auto 0;
+		}
+
+		[data-book] {
+			text-align: left;
+		}
+	}
+
+	.book-more-details .description {
+		h2 {
+			font-size: 150%;
+		}
+
+		h3,
 		h4 {
-			font-size: 95%;
-
-			&:before,
-			&:after {
-				display: none;
-			}
+			font-size: 100%;
 		}
+	}
 
-		li {
-			float: none;
-			width: 100%;
-			max-width: 320px;
-			margin: 0 auto;
-		}
+	.modal {
+		padding: 15px;
 	}
 }
 
-@media (max-width: 410px) {
-	.amazing-grace-about {
-		.description {
-			h2 {
-				font-size: 150%;
-			}
+@media (max-width: 430px) {
+	header .inner-header {
+		padding: 35px 15px;		
+	}
 
-			h3,
-			h4 {
-				font-size: 105%;
-			}
+	aside {
+		text-align: center;
+
+		img {
+			float: none;
+		}
+
+		h2,
+		p {
+			padding: 0;
+			text-align: center;
+		}
+	}
+
+	aside,
+	.books {
+		padding: 0 15px;
+	}
+
+	.books {
+		& > ul > li {
+			padding: 20px 0 40px;			
 		}
 	}
 }
